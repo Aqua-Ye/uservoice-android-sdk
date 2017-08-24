@@ -27,7 +27,7 @@ public class PortalActivity extends SearchActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         MenuItem item = menu.findItem(R.id.uv_action_contact);
-        if (!Session.getInstance().getConfig(this).shouldShowContactUs()) {
+        if (!Session.getInstance().getConfig(this).shouldShowPortalContactUs()) {
             item.setVisible(false);
         }
         super.onPrepareOptionsMenu(menu);

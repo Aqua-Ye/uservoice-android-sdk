@@ -1,8 +1,5 @@
 package com.uservoice.uservoicesdk.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.uservoice.uservoicesdk.R;
@@ -23,6 +19,9 @@ import com.uservoice.uservoicesdk.model.Topic;
 import com.uservoice.uservoicesdk.rest.Callback;
 import com.uservoice.uservoicesdk.ui.PaginatedAdapter;
 import com.uservoice.uservoicesdk.ui.PaginationScrollListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TopicActivity extends SearchActivity {
 
@@ -110,7 +109,7 @@ public class TopicActivity extends SearchActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         MenuItem item = menu.findItem(R.id.uv_action_contact);
-        if (!Session.getInstance().getConfig(this).shouldShowContactUs()) {
+        if (!Session.getInstance().getConfig(this).shouldShowTopicContactUs()) {
             item.setVisible(false);
         }
         super.onPrepareOptionsMenu(menu);

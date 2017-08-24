@@ -1,8 +1,5 @@
 package com.uservoice.uservoicesdk.ui;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
@@ -25,6 +22,9 @@ import com.uservoice.uservoicesdk.model.BaseModel;
 import com.uservoice.uservoicesdk.model.Forum;
 import com.uservoice.uservoicesdk.model.Suggestion;
 import com.uservoice.uservoicesdk.model.Topic;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PortalAdapter extends SearchAdapter<BaseModel> implements AdapterView.OnItemClickListener {
 
@@ -116,7 +116,7 @@ public class PortalAdapter extends SearchAdapter<BaseModel> implements AdapterVi
         if (staticRows == null) {
             staticRows = new ArrayList<Integer>();
             Config config = Session.getInstance().getConfig(context);
-            if (config.shouldShowContactUs())
+            if (config.shouldShowPortalContactUs())
                 staticRows.add(CONTACT);
             if (config.shouldShowForum())
                 staticRows.add(FORUM);

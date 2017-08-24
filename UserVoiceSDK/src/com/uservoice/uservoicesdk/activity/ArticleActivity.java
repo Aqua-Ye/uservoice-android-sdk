@@ -4,14 +4,11 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -72,7 +69,7 @@ public class ArticleActivity extends SearchActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         MenuItem item = menu.findItem(R.id.uv_action_contact);
-        if (!Session.getInstance().getConfig(this).shouldShowContactUs()) {
+        if (!Session.getInstance().getConfig(this).shouldShowArticleContactUs()) {
             item.setVisible(false);
         }
         super.onPrepareOptionsMenu(menu);

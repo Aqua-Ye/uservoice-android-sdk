@@ -24,7 +24,9 @@ public class Config extends BaseModel {
     private int forumId = -1;
     private boolean showForum = true;
     private boolean showPostIdea = true;
-    private boolean showContactUs = true;
+    private boolean showPortalContactUs = true;
+    private boolean showTopicContactUs = true;
+    private boolean showArticleContactUs = true;
     private boolean showKnowledgeBase = true;
     private Map<String, Object> userTraits = new HashMap<String, Object>();
     private List<Attachment> attachmentList = new ArrayList<Attachment>();
@@ -115,14 +117,34 @@ public class Config extends BaseModel {
         this.showPostIdea = showPostIdea;
     }
 
-    public boolean shouldShowContactUs() {
+    public boolean shouldShowPortalContactUs() {
         if (Session.getInstance().getClientConfig() != null && !Session.getInstance().getClientConfig().isTicketSystemEnabled())
             return false;
-        return showContactUs;
+        return showPortalContactUs;
     }
 
-    public void setShowContactUs(boolean showContactUs) {
-        this.showContactUs = showContactUs;
+    public void setShowPortalContactUs(boolean showPortalContactUs) {
+        this.showPortalContactUs = showPortalContactUs;
+    }
+
+    public boolean shouldShowTopicContactUs() {
+        if (Session.getInstance().getClientConfig() != null && !Session.getInstance().getClientConfig().isTicketSystemEnabled())
+            return false;
+        return showTopicContactUs;
+    }
+
+    public void setShowTopicContactUs(boolean showTopicContactUs) {
+        this.showTopicContactUs = showTopicContactUs;
+    }
+
+    public boolean shouldShowArticleContactUs() {
+        if (Session.getInstance().getClientConfig() != null && !Session.getInstance().getClientConfig().isTicketSystemEnabled())
+            return false;
+        return showArticleContactUs;
+    }
+
+    public void setShowArticleContactUs(boolean showArticleContactUs) {
+        this.showArticleContactUs = showArticleContactUs;
     }
 
     public boolean shouldShowKnowledgeBase() {
@@ -207,7 +229,9 @@ public class Config extends BaseModel {
         object.put("forumId", forumId);
         object.put("showForum", showForum);
         object.put("showPostIdea", showPostIdea);
-        object.put("showContactUs", showContactUs);
+        object.put("showPortalContactUs", showPortalContactUs);
+        object.put("showTopicContactUs", showTopicContactUs);
+        object.put("showArticleContactUs", showArticleContactUs);
         object.put("showKnowledgeBase", showKnowledgeBase);
         object.put("userTraits", serializeMap(userTraits));
         object.put("attachmentList", serializeList(attachmentList));
@@ -226,7 +250,9 @@ public class Config extends BaseModel {
         forumId = object.getInt("forumId");
         showForum = object.getBoolean("showForum");
         showPostIdea = object.getBoolean("showPostIdea");
-        showContactUs = object.getBoolean("showContactUs");
+        showPortalContactUs = object.getBoolean("showPortalContactUs");
+        showTopicContactUs = object.getBoolean("showTopicContactUs");
+        showArticleContactUs = object.getBoolean("showArticleContactUs");
         showKnowledgeBase = object.getBoolean("showKnowledgeBase");
         userTraits = deserializeMap(object.getJSONObject("userTraits"));
         attachmentList = deserializeList(object, "attachmentList", Attachment.class);
