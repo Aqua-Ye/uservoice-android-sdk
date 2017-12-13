@@ -117,12 +117,6 @@ public class TopicActivity extends SearchActivity {
     }
 
     @Override
-    public void hideSearch() {
-        super.hideSearch();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.uv_portal, menu);
         setupScopedSearch(menu);
