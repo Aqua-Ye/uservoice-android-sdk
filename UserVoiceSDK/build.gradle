@@ -41,7 +41,7 @@ repositories {
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.compileSdkVersion
 
     sourceSets {
         main {
@@ -54,8 +54,8 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:support-core-utils:28.0.0'
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation "com.android.support:support-core-utils:${rootProject.supportLibraryVersion}"
+    implementation "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
+    implementation "com.squareup.okhttp3:okhttp:${rootProject.okhttpVersion}"
     implementation 'oauth.signpost:signpost-core:1.2.1.2'
 }
